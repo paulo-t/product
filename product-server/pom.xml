@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <packaging>jar</packaging>
     <artifactId>product-server</artifactId>
 
     <dependencies>
@@ -46,6 +47,28 @@
             <groupId>com.paulo</groupId>
             <artifactId>common</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.paulo.springcloud</groupId>
+            <artifactId>product-common</artifactId>
+        </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.paulo.product.server.ProductApplication</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

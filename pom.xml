@@ -32,7 +32,10 @@
         <mybatis-starter.version>2.1.2</mybatis-starter.version>
         <guava.version>28.1-jre</guava.version>
         <common-lang.version>3.9</common-lang.version>
-        <project.common>1.0-SNAPSHOT</project.common>
+        <project.common.version>1.0-SNAPSHOT</project.common.version>
+        <product-common.version>1.0-SNAPSHOT</product-common.version>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
     </properties>
 
     <dependencyManagement>
@@ -82,7 +85,12 @@
             <dependency>
                 <groupId>com.paulo</groupId>
                 <artifactId>common</artifactId>
-                <version>${project.common}</version>
+                <version>${project.common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.paulo.springcloud</groupId>
+                <artifactId>product-common</artifactId>
+                <version>${product-common.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -114,6 +122,14 @@
         <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.6.2</version>
@@ -133,17 +149,50 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${spring-boot.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
+                <configuration>
+                    <skipTests>true</skipTests>  <!--默认关掉单元测试 -->
+                </configuration>
             </plugin>
         </plugins>
     </build>
+
+    <!-- 环境信息 -->
+    <profiles>
+        <!-- 标机开发环境 -->
+        <profile>
+            <id>dev</id>
+            <properties>
+                <activeProfile>dev</activeProfile>
+                <commonactive>commondev</commonactive>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <!-- 测试环境 -->
+        <profile>
+            <id>test</id>
+            <properties>
+                <activeProfile>test</activeProfile>
+                <commonactive>commontest</commonactive>
+            </properties>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+        </profile>
+        <!-- 生产环境 -->
+        <profile>
+            <id>prd</id>
+            <properties>
+                <activeProfile>prd</activeProfile>
+                <commonactive>commonprd</commonactive>
+            </properties>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+        </profile>
+    </profiles>
 </project>
