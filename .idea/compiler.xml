@@ -22,9 +22,12 @@
           <entry name="$MAVEN_REPOSITORY$/org/springframework/spring-context/4.0.3.RELEASE/spring-context-4.0.3.RELEASE.jar" />
           <entry name="$MAVEN_REPOSITORY$/joda-time/joda-time/2.9/joda-time-2.9.jar" />
         </processorPath>
+        <module name="product-client" />
+        <module name="product-common" />
+        <module name="product-server" />
+        <module name="productclient" />
         <module name="productcommon" />
         <module name="productserver" />
-        <module name="productclient" />
       </profile>
     </annotationProcessing>
   </component>

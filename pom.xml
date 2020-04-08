@@ -30,6 +30,9 @@
         <fastjson.version>1.2.68</fastjson.version>
         <mysql-connector.version>8.0.19</mysql-connector.version>
         <mybatis-starter.version>2.1.2</mybatis-starter.version>
+        <guava.version>28.1-jre</guava.version>
+        <common-lang.version>3.9</common-lang.version>
+        <project.common>1.0-SNAPSHOT</project.common>
     </properties>
 
     <dependencyManagement>
@@ -66,6 +69,21 @@
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis-starter.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${common-lang.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.paulo</groupId>
+                <artifactId>common</artifactId>
+                <version>${project.common}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -79,10 +97,17 @@
             <artifactId>lombok</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct-jdk8</artifactId>
         </dependency>
-
     </dependencies>
 
     <build>
