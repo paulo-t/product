@@ -6,3 +6,5 @@ spring:
     active: prd
   aop:
     proxy-target-class=true:
+  application:
+    name: product

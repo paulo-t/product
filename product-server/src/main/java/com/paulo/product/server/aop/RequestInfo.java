@@ -2,6 +2,7 @@ package com.paulo.product.server.aop;
 
 import lombok.Data;
 import lombok.ToString;
+import org.springframework.cloud.openfeign.FeignClient;
 
 import java.io.Serializable;
 import java.util.Map;
