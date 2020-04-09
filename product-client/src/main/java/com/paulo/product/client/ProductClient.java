@@ -1,8 +1,8 @@
 package com.paulo.product.client;
 
 import com.paulo.common.model.BaseResponse;
-import com.paulo.product.common.model.PersonDTO;
-import com.paulo.product.common.model.SinglePersonRequestDTO;
+import com.paulo.product.common.model.PersonVO;
+import com.paulo.product.common.model.SinglePersonRequestVO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +19,7 @@ import java.util.List;
 @FeignClient(name = "product")
 public interface ProductClient {
     @GetMapping("/getAllPerson")
-    BaseResponse<List<PersonDTO>> getAllPerson();
+    BaseResponse<List<PersonVO>> getAllPerson();
     @PostMapping("/getSinglePerson")
-    BaseResponse<PersonDTO> getSinglePerson(@RequestBody SinglePersonRequestDTO singlePersonRequestDTO);
+    BaseResponse<PersonVO> getSinglePerson(@RequestBody SinglePersonRequestVO requestVO);
 }

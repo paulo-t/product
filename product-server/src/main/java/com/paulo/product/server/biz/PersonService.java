@@ -1,8 +1,8 @@
 package com.paulo.product.server.biz;
 
 import com.paulo.common.exception.BizException;
-import com.paulo.product.server.biz.model.PersonVO;
-import com.paulo.product.server.biz.model.SinglePersonRequestVO;
+import com.paulo.product.common.model.PersonVO;
+import com.paulo.product.common.model.SinglePersonRequestVO;
 
 import java.util.List;
 
