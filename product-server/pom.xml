@@ -52,10 +52,6 @@
             <artifactId>spring-cloud-starter-feign</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.paulo</groupId>
-            <artifactId>common</artifactId>
-        </dependency>
-        <dependency>
             <groupId>com.paulo.springcloud</groupId>
             <artifactId>product-common</artifactId>
         </dependency>
